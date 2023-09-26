@@ -84,4 +84,25 @@
         min-width: 320px;
         width: 100%;
     }
+
+    .gender-btn {
+        transform: translateX(-10px);
+    }
+
+    .subtitle {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 2rem;
+        color: var(--muted-foreground);
+    }
+
+    @media (max-width: 768px) {
+        .subtitle {
+            width: 100%;
+            margin-inline: 1rem;
+        }
+    }
 }

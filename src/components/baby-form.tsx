@@ -15,7 +15,7 @@ const babyForm = () => {
     console.log(data)
   }
   return (
-    <AutoForm className={'flex flex-col bg-lime-100 p-4 w-2/4'} onSubmit={handleSubmit} formSchema={babySchema}
+    <AutoForm className={'flex flex-col items-center bg-lime-100 p-6'} onSubmit={handleSubmit} formSchema={babySchema}
               fieldConfig={{
                 name: {
                   inputProps: {
@@ -53,7 +53,8 @@ const babyForm = () => {
                           {label}
                         </FormLabel>
                       </div>
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                      <FormItem
+                        className="gender-btn flex justify-center items-center space-x-3 space-y-0 ">
                         <div className="space-y-1 leading-none">
                           <FormLabel>
                             {'Garçon'}
