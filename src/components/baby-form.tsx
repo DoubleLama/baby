@@ -10,8 +10,16 @@ const babySchema = z.object({
   weight: z.coerce.number().min(0).max(10).describe('Poids'),
   height: z.coerce.number().min(0).max(100).describe('Taille'),
 })
+
+type BabyFormData = {
+  gender: boolean
+  name: string
+  dateOfBirth: Date
+  weight: number
+  height: number
+}
 const babyForm = () => {
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: BabyFormData) => {
     console.log(data)
   }
   return (
@@ -19,81 +27,64 @@ const babyForm = () => {
       <h1>Bébé</h1>
       <AutoForm className={'flex flex-col items-center bg-lime-100 p-6'} onSubmit={handleSubmit} formSchema={babySchema}
                 fieldConfig={{
-                  user: {
-                    name: {
-                      inputProps: {
-                        type: 'text',
-                        placeholder: 'Micheline ou José'
-                      }
-                    },
-                    phoneNumber: {
-                      inputProps: {
-                        type: 'tel',
-                        placeholder: '06 . . . . . . . .'
-                      }
+                  name: {
+                    inputProps: {
+                      type: 'text',
+                      placeholder: 'Obi Wan ou Leia'
                     }
                   },
-                  baby: {
-
-                    name: {
-                      inputProps: {
-                        type: 'text',
-                        placeholder: 'Obi Wan ou Leia'
-                      }
-                    },
-                    weight: {
-                      inputProps: {
-                        type: 'number',
-                        placeholder: 'Poids en kg',
-                      }
-                    },
-                    height: {
-                      inputProps: {
-                        type: 'number',
-                        placeholder: 'Taille en cm',
-                      }
-                    },
-                    dateOfBirth: {
-                      inputProps: {
-                        type: 'date',
-                        placeholder: 'Choisis une date'
-                      }
-                    },
-                    gender: {
-                      fieldType: ({
-                                    label,
-                                    field,
-                                    fieldProps,
-                                  }: AutoFormInputComponentProps) => (
-                        <>
+                  weight: {
+                    inputProps: {
+                      type: 'number',
+                      placeholder: 'Poids en kg',
+                    }
+                  },
+                  height: {
+                    inputProps: {
+                      type: 'number',
+                      placeholder: 'Taille en cm',
+                    }
+                  },
+                  dateOfBirth: {
+                    inputProps: {
+                      type: 'date',
+                      placeholder: 'Choisis une date'
+                    }
+                  },
+                  gender: {
+                    fieldType: ({
+                                  label,
+                                  field,
+                                  fieldProps,
+                                }: AutoFormInputComponentProps) => (
+                      <>
+                        <div className="space-y-1 leading-none">
+                          <FormLabel>
+                            {label}
+                          </FormLabel>
+                        </div>
+                        <FormItem
+                          className="gender-btn flex justify-center items-center space-x-3 space-y-0 ">
                           <div className="space-y-1 leading-none">
                             <FormLabel>
-                              {label}
+                              {'Garçon'}
                             </FormLabel>
                           </div>
-                          <FormItem
-                            className="gender-btn flex justify-center items-center space-x-3 space-y-0 ">
-                            <div className="space-y-1 leading-none">
-                              <FormLabel>
-                                {'Garçon'}
-                              </FormLabel>
-                            </div>
-                            <FormControl>
-                              <Switch
-                                checked={field.value}
-                                onCheckedChange={field.onChange}
-                                {...fieldProps}
-                              />
-                            </FormControl>
-                            <div className="space-y-1 leading-none">
-                              <FormLabel>
-                                {'Fille'}
-                              </FormLabel>
-                            </div>
-                          </FormItem>
-                        </>
-                      ),
-                    }
+                          <FormControl>
+                            <Switch
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                              {...fieldProps}
+                            />
+                          </FormControl>
+                          <div className="space-y-1 leading-none">
+                            <FormLabel>
+                              {'Fille'}
+                            </FormLabel>
+                          </div>
+                        </FormItem>
+                      </>
+                    ),
                   }
                 }}>
         <AutoFormSubmit>Valider</AutoFormSubmit>

@@ -11,7 +11,7 @@ type UserFormProps = {
   setIsValid: (isValid: boolean) => void
 }
 const UserForm = ({setIsValid}: UserFormProps) => {
-  const handleSubmit = (data: any) => {
+  const handleSubmit = () => {
     setIsValid(true)
   }
   return (
