@@ -15,70 +15,91 @@ const babyForm = () => {
     console.log(data)
   }
   return (
-    <AutoForm className={'flex flex-col items-center bg-lime-100 p-6'} onSubmit={handleSubmit} formSchema={babySchema}
-              fieldConfig={{
-                name: {
-                  inputProps: {
-                    type: 'text',
-                    placeholder: 'Obi Wan ou Leia'
+    <>
+      <h1>Bébé</h1>
+      <AutoForm className={'flex flex-col items-center bg-lime-100 p-6'} onSubmit={handleSubmit} formSchema={babySchema}
+                fieldConfig={{
+                  user: {
+                    name: {
+                      inputProps: {
+                        type: 'text',
+                        placeholder: 'Micheline ou José'
+                      }
+                    },
+                    phoneNumber: {
+                      inputProps: {
+                        type: 'tel',
+                        placeholder: '06 . . . . . . . .'
+                      }
+                    }
+                  },
+                  baby: {
+
+                    name: {
+                      inputProps: {
+                        type: 'text',
+                        placeholder: 'Obi Wan ou Leia'
+                      }
+                    },
+                    weight: {
+                      inputProps: {
+                        type: 'number',
+                        placeholder: 'Poids en kg',
+                      }
+                    },
+                    height: {
+                      inputProps: {
+                        type: 'number',
+                        placeholder: 'Taille en cm',
+                      }
+                    },
+                    dateOfBirth: {
+                      inputProps: {
+                        type: 'date',
+                        placeholder: 'Choisis une date'
+                      }
+                    },
+                    gender: {
+                      fieldType: ({
+                                    label,
+                                    field,
+                                    fieldProps,
+                                  }: AutoFormInputComponentProps) => (
+                        <>
+                          <div className="space-y-1 leading-none">
+                            <FormLabel>
+                              {label}
+                            </FormLabel>
+                          </div>
+                          <FormItem
+                            className="gender-btn flex justify-center items-center space-x-3 space-y-0 ">
+                            <div className="space-y-1 leading-none">
+                              <FormLabel>
+                                {'Garçon'}
+                              </FormLabel>
+                            </div>
+                            <FormControl>
+                              <Switch
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                                {...fieldProps}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel>
+                                {'Fille'}
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        </>
+                      ),
+                    }
                   }
-                },
-                weight: {
-                  inputProps: {
-                    type: 'number',
-                    placeholder: 'Poids en kg',
-                  }
-                },
-                height: {
-                  inputProps: {
-                    type: 'number',
-                    placeholder: 'Taille en cm',
-                  }
-                },
-                dateOfBirth: {
-                  inputProps: {
-                    type: 'date',
-                    placeholder: 'Choisis une date'
-                  }
-                },
-                gender: {
-                  fieldType: ({
-                                label,
-                                field,
-                                fieldProps,
-                              }: AutoFormInputComponentProps) => (
-                    <>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel>
-                          {label}
-                        </FormLabel>
-                      </div>
-                      <FormItem
-                        className="gender-btn flex justify-center items-center space-x-3 space-y-0 ">
-                        <div className="space-y-1 leading-none">
-                          <FormLabel>
-                            {'Garçon'}
-                          </FormLabel>
-                        </div>
-                        <FormControl>
-                          <Switch
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                            {...fieldProps}
-                          />
-                        </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel>
-                            {'Fille'}
-                          </FormLabel>
-                        </div>
-                      </FormItem>
-                    </>
-                  ),
-                }
-              }}>
-      <AutoFormSubmit>Valider</AutoFormSubmit>
-    </AutoForm>
+                }}>
+        <AutoFormSubmit>Valider</AutoFormSubmit>
+      </AutoForm>
+    </>
+
   )
 }
 
