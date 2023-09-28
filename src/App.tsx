@@ -1,12 +1,7 @@
 import BabyForm from "@/components/baby-form.tsx";
 import {useState} from "react";
 import UserForm from "@/components/user-form.tsx";
-import {UserFormData} from "../typings";
-
-const defaultUser: UserFormData = {
-  name: '',
-  phoneNumber: ''
-}
+import {defaultUser} from "@/tools.ts";
 
 const App = () => {
   const [user, setUser] = useState(defaultUser)

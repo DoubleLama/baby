@@ -1,6 +1,10 @@
+import {FieldConfig} from "@/components/auto-form.tsx";
+
 export type UserFormData = {
   name: string,
   phoneNumber: string,
+  exist?: boolean
+  id?: string
 }
 
 export type UserFormProps = {
@@ -11,7 +15,7 @@ export type BabyFormProps = {
   user: UserFormData;
 }
 
-export type BabyFormData = {
+export interface BabyFormData {
   gender: boolean | string
   name: string
   dateOfBirth: Date
@@ -19,4 +23,15 @@ export type BabyFormData = {
   height: number
 }
 
-export type FullFormData = BabyFormData & UserFormData
+export interface FullFormData extends BabyFormData {
+  user: Omit<UserFormData, 'exist'>
+  dateOfBirth: string
+}
+
+export type FormProps = {
+  fieldConfig?: FieldConfig;
+  formSchema: any;
+} & (
+  | { handleSubmit: (data: BabyFormData) => void | Promise<void> }
+  | { handleSubmit: (data: UserFormData) => void | Promise<void> }
+  );
