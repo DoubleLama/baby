@@ -99,7 +99,15 @@
         color: var(--muted-foreground);
     }
 
+    .baby-form {
+        width: 60%;
+    }
+
     @media (max-width: 768px) {
+        .baby-form {
+            width: 85%;
+        }
+
         .subtitle {
             width: 100%;
             margin-inline: 1rem;

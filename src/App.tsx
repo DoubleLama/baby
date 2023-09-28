@@ -1,17 +1,37 @@
 import BabyForm from "@/components/baby-form.tsx";
 import {useState} from "react";
 import UserForm from "@/components/user-form.tsx";
+import {UserFormData} from "../typings";
+
+const defaultUser: UserFormData = {
+  name: '',
+  phoneNumber: ''
+}
 
 const App = () => {
-  const [isValid, setIsValid] = useState(false)
+  const [user, setUser] = useState(defaultUser)
   return (
     <div className={'flex flex-col items-center'}>
       <h1 className={'text-center font-bold text-4xl text-zinc-600 mb-6'}>BabyChou</h1>
       <h2 className={'subtitle mb-6'}>
         Fais nous ton meilleur prono et à toi ton poids en carottes
       </h2>
-      {!isValid && <UserForm setIsValid={setIsValid}/>}
-      {isValid && <BabyForm/>}
+      <h3 className={'mb-3'}>
+        {user === defaultUser
+          ? 'Dis nous qui participe ?'
+          : 'Concernant le futur bébé'}
+      </h3>
+
+      {user === defaultUser && (
+        <>
+          <UserForm setUser={setUser}/>
+        </>
+      )}
+      {user !== defaultUser && (
+        <>
+          <BabyForm user={user}/>
+        </>
+      )}
     </div>
   )
 }
