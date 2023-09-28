@@ -12,15 +12,18 @@ const babySchema = z.object({
 })
 
 type BabyFormData = {
-  gender: boolean
+  gender: boolean | string
   name: string
   dateOfBirth: Date
   weight: number
   height: number
 }
+
 const babyForm = () => {
   const handleSubmit = (data: BabyFormData) => {
-    console.log(data)
+    const gender = data.gender ? 'Fille' : 'Garçon'
+    const newData: BabyFormData = {...data, gender}
+    console.log(newData)
   }
   return (
     <>
