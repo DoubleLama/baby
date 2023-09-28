@@ -4,7 +4,7 @@ import validator from "validator";
 export const babySchema = z.object({
   gender: z.boolean().describe('Sexe'),
   name: z.string().min(1).max(50).describe('Prénom'),
-  dateOfBirth: z.coerce.date().min(new Date(2023, 8, 27)).max(new Date(2023, 9, 29)).describe('Date de naissance'),
+  dateOfBirth: z.coerce.date().min(new Date(2023, 8, 27)).max(new Date(2023, 9, 29)).describe('Date de naissance (terme au 25 octobre)'),
   weight: z.coerce.number().min(2000).max(10000).describe('Poids (en grammes)'),
   height: z.coerce.number().min(30).max(100).describe('Taille (en cm)'),
 })
