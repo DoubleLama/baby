@@ -2,12 +2,15 @@ import BabyForm from "@/components/baby-form.tsx";
 import {useState} from "react";
 import UserForm from "@/components/user-form.tsx";
 import {defaultUser} from "@/tools.ts";
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from "react-toastify";
 
 const App = () => {
   const [user, setUser] = useState(defaultUser)
   return (
     <div className={'flex flex-col items-center'}>
-      <h1 className={'text-center font-bold text-4xl text-zinc-600 mb-6'}>BabyChou</h1>
+      <ToastContainer/>
+      <h1 className={'text-center font-bold text-6xl text-zinc-600 mb-6'}>BabyChou</h1>
       <h2 className={'subtitle mb-6'}>
         Fais nous ton meilleur prono et à toi ton poids en carottes
       </h2>
@@ -24,7 +27,7 @@ const App = () => {
       )}
       {user !== defaultUser && (
         <>
-          <BabyForm user={user}/>
+          <BabyForm user={user} setUser={setUser}/>
         </>
       )}
     </div>

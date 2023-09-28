@@ -13,6 +13,7 @@ export type UserFormProps = {
 
 export type BabyFormProps = {
   user: UserFormData;
+  setUser: (user: UserFormData) => void
 }
 
 export interface BabyFormData {

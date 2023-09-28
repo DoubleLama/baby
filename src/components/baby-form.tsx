@@ -5,9 +5,10 @@ import {BabyFormData, BabyFormProps, FullFormData} from "../../typings";
 import Form from "@/components/form.tsx";
 import {babySchema} from "@/components/schema.ts";
 import {supabase} from "@/supabase.ts";
-import {formatDate} from "@/tools.ts";
+import {defaultUser, formatDate} from "@/tools.ts";
+import {toast} from "react-toastify";
 
-const BabyForm = ({user}: BabyFormProps) => {
+const BabyForm = ({user, setUser}: BabyFormProps) => {
   const handleSubmit = async (data: BabyFormData) => {
     const gender = data.gender ? 'Fille' : 'Garçon'
     const formattedDate = formatDate(data.dateOfBirth);
@@ -38,7 +39,8 @@ const BabyForm = ({user}: BabyFormProps) => {
         return;
       }
     }
-    console.log('Données enregistrées avec succès');
+    toast('Prono bien enregistré !');
+    setUser(defaultUser)
   }
 
   const fieldConfig = {
