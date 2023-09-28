@@ -83,7 +83,7 @@
         min-height: 100vh;
         min-width: 320px;
         width: 100%;
-        background-image: url('src/assets/background-scene.png');
+        background-image: url('../src/assets/background-scene.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
