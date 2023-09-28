@@ -3,7 +3,7 @@ import {FormControl, FormItem, FormLabel} from "@/components/ui/form.tsx";
 import {Switch} from "@/components/ui/switch.tsx";
 import {BabyFormData, BabyFormProps, FullFormData} from "../../typings";
 import Form from "@/components/form.tsx";
-import {babySchema} from "@/components/schema.ts";
+import {babySchema} from "@/schema.ts";
 import {supabase} from "@/supabase.ts";
 import {defaultUser, formatDate} from "@/tools.ts";
 import {toast} from "react-toastify";

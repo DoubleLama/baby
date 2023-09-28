@@ -1,5 +1,5 @@
 import {UserFormData, UserFormProps} from "../../typings";
-import {userSchema} from "@/components/schema.ts";
+import {userSchema} from "@/schema.ts";
 import Form from "@/components/form.tsx";
 import {checkUserExists, defaultUser} from "@/tools.ts";
 
