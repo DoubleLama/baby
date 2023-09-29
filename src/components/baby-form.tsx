@@ -47,7 +47,7 @@ const BabyForm = ({user, setUser}: BabyFormProps) => {
     name: {
       inputProps: {
         type: 'text',
-        placeholder: 'Luke ou Leia'
+        placeholder: 'Ici le prénom...'
       }
     },
     weight: {
